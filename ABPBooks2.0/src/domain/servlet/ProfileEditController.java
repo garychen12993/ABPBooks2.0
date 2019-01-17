@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.bean.Customer;
-import domain.dao.CustomerDao;
+import domain.dao.StudentDao;
 
 /**
  * Servlet implementation class ProfileEditController
@@ -38,7 +38,7 @@ public class ProfileEditController extends HttpServlet {
 			 request.getRequestDispatcher("/errormassage.jsp").forward(request, response);
 		 }
 		 else {
-			 CustomerDao customerDao = new CustomerDao();
+			 StudentDao customerDao = new StudentDao();
 			 Customer customer = new Customer(session.getAttribute("email").toString(), session.getAttribute("passwd").toString());
 			 customer.setFirstName(request.getParameter("FirstName"));
 			 customer.setLastName(request.getParameter("LastName"));

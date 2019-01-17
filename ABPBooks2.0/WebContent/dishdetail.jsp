@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="domain.bean.Dish"%>
+<%@page import="domain.bean.Book"%>
 <%@page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
@@ -32,10 +32,10 @@ function add(){
 <a href="<%=request.getContextPath()%>/ProfileController">profile</a><br>
 <a href="<%=request.getContextPath()%>/CartController">shopping cart</a><br>
 			<%
-				List<Dish> list = (List<Dish>)request.getAttribute("list");
-				if(list != null && list.size() > 0){
-					for(Dish dish : list){
-						%>
+				List<Book> list = (List<Book>)request.getAttribute("list");
+					if(list != null && list.size() > 0){
+						for(Book dish : list){
+			%>
 <td>dish <%= dish.getId() %></td>
 <div float='right' width='60%'>
 		<table border='1' cellspacing='0' width='60%'>

@@ -15,7 +15,7 @@ import domain.bean.Book;
  *
  */
 
-public class DishDao {
+public class BookDao {
 	private MySQLJDBC mySQLJDBC = new MySQLJDBC();
 	
 	public List<Book> selectDish(int id) {
@@ -28,14 +28,17 @@ public class DishDao {
 		ResultSet rs = mySQLJDBC.excuteQuery();
 		try {
 			while(rs.next()) {
-				Book dish = new Book();
-				dish.setId(rs.getInt("did"));
-				dish.setName(rs.getString("name"));
-				dish.setDes(rs.getString("description"));
-				dish.setDCId(rs.getInt("categoryid"));
-				dish.setPic(rs.getString("picture"));
-				dish.setPrice(rs.getDouble("price"));
-				list.add(dish);
+				Book book = new Book();
+				book.setCount(rs.getInt("count"));
+				book.setABPID(rs.getString("ABPID) "));
+				book.setBookname(rs.getString("bookname) "));
+				book.setEdition(rs.getString("edition) "));
+				book.setAuthors(rs.getString("authors) "));
+				book.setISBN(rs.getString("ISBN) "));
+				book.setSubject(rs.getString("subject) "));
+				book.setAvailability(rs.getInt("isAvailable) "));
+				book.setNumRequests(rs.getInt("numRequests) ) "));
+				list.add(book);
 				
 			}
 		}catch(Exception e) {

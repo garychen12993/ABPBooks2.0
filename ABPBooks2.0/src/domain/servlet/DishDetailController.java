@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import domain.bean.Book;
-import domain.dao.DishDao;
+import domain.dao.BookDao;
 
 /**
  * Servlet implementation class DishDetailController
@@ -34,7 +34,7 @@ public class DishDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//int id = Integer.parseInt(request.getParameter("id"));
-		DishDao dishDetailDao = new DishDao();
+		BookDao dishDetailDao = new BookDao();
 		List<Book> list = new ArrayList<Book>();
 		list = dishDetailDao.selectDish(Integer.parseInt(request.getParameter("id")));
 		request.setAttribute("list", list);

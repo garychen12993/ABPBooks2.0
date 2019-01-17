@@ -8,7 +8,8 @@ package domain.bean;
  *
  */
 public class Student {
-	private int id = 0;
+	private int count = 0;
+	private String studentID = null;
 	private String email = null;
 	private String password = null;
 	private String firstName = null;
@@ -23,28 +24,46 @@ public class Student {
 	 * @param email
 	 * @param password
 	 */
-	public Student(String email, String password, String firstName, String lastName, String address, String phone, int bridgeYear, String major, int flagged) {
-		this.email = email;
+	
+	//public Student(String email, long studentID, String password, String firstName, String lastName, String address, String phone, int bridgeYear, String major, int flagged) {
+	//public Student(long studentID, String password) {
+	public Student(String studentID, String password) {
+		//this.email = email;
+		this.studentID = studentID;
 		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.phone = phone;
-		this.bridgeYear = bridgeYear;
-		this.major = major;
-		this.flagged = flagged;
+		//this.firstName = firstName;
+		//this.lastName = lastName;
+		//this.address = address;
+		//this.phone = phone;
+		//this.bridgeYear = bridgeYear;
+		//this.major = major;
+		//this.flagged = flagged;
 	}
+	
 	/**
 	 * @return the id
 	 */
-	public int getId() {
-		return id;
+	public int getCount() {
+		return count;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
-		this.id = id;
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
+	/**
+	 * @return the id
+	 */
+	public String getStudentId() {
+		return studentID;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setStudentId(String studentID) {
+		this.studentID = studentID;
 	}
 	
 	/**

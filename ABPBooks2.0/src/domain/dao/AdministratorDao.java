@@ -10,7 +10,7 @@ import domain.bean.Administrator;
 import util.MySQLJDBC;
 
 /**
- * @author lypf2018
+ * @author Gary Chen, Nancy Dominguez
  * Administrator DAO class, including methods to access Administrator in database.
  *
  */
@@ -27,11 +27,11 @@ public class AdministratorDao {
 	 *         or (2) null.
 	 */
 	public Administrator validateAdministrator(Administrator administrator) {
-		mySQLJDBC.setPreparedSql("select aid from admin where username=? and password=?", administrator.getUsername(), administrator.getPassword());
+		mySQLJDBC.setPreparedSql("select id from admin where username=? and password=?", administrator.getUsername(), administrator.getPassword());
 		ResultSet resultSet = mySQLJDBC.excuteQuery();
 		try {
 			if ((resultSet != null) && (resultSet.next())) {
-				administrator.setId(resultSet.getInt("aid"));
+				administrator.setId(resultSet.getInt("id"));
 				return administrator;
 			}
 		} catch (SQLException e) {

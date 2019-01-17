@@ -1,15 +1,14 @@
 package domain.bean;
 
+import java.util.*;
 import java.util.LinkedList;
 
 public class Hold {
-	private String orderID = null;
-	private String customerID = null;
-	private LinkedList<Dish> dish = new LinkedList<>();
-	private String time = null;
-	private String status;
-	private double bill = 0;
-	
+	private String ABPID = null;
+	private long studentID = 0;
+	private LinkedList<Book> book = new LinkedList<>();
+	private String endDate = null;
+
 //	public Order() {
 //		orderID = null;
 //		String customerID = null;
@@ -19,71 +18,43 @@ public class Hold {
 //	}
 	
 	//getter and setter for orderID
-	public String getOrderID() {
-		return orderID;
+	public String getABPID() {
+		return ABPID;
 	}
 	
-	public void setOrderID(String ID) {
-		this.orderID = ID;
+	public void setABPID(String ABPID) {
+		this.ABPID = ABPID;
 	}
 	
 	
 	//getter and setter for customerID
-		public String getCustomerID() {
-			return customerID;
+		public long getStudentID() {
+			return studentID;
 		}
 		
-		public void setCustomerID(String ID) {
-			this.customerID = ID;
+		public void setStudentID(long studentID) {
+			this.studentID = studentID;
 		}
 	
 	
 	//getter and setter for dish
-	public LinkedList<Dish> getDish() {
-		return dish;
+	public LinkedList<Book> getBook() {
+		return book;
 	}
 	
-	public void setDish(Dish d) {
-		dish.add(d);
+	public void setBook(Book d) {
+		book.add(d);
 	}
 	
 	
 	
     //getter and setter for time
-	public String getTime() {
-		return time;
+	public String getEndDate() {
+		return endDate;
 	}
 	
-	public void setTime(String time) {
-		this.time = time;
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
-	
-	
-	
-    //getter and setter for status
-	public String getStatus() {
-		return status;
-	}
-	
-	public void setStatus(String s) {
-		this.status = s;
-	}
-	
-	
-	//getter and setter for bill
-		public double getBill() {
-//			for(Dish d : dish) {
-//				int dishNum = d.getOrderNum();
-//				double dishPrice = d.getPrice();
-//				bill += dishNum * dishPrice;
-//			}
-			return bill;
-		}
-		
-		public void setBill(double b) {
-			this.bill = b;
-		}
-		
-		
 	
 }

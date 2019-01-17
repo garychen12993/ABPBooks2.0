@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="domain.bean.Dish"%>
+<%@page import="domain.bean.Book"%>
 <%@page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
@@ -34,10 +34,10 @@ function del() {
 			</tr>
 			<tr>
 			<%
-				List<Dish> list = (List<Dish>)request.getAttribute("list");
-				if(list != null && list.size() > 0){
-					for(Dish dish : list){
-						%>
+				List<Book> list = (List<Book>)request.getAttribute("list");
+					if(list != null && list.size() > 0){
+						for(Book dish : list){
+			%>
 						<tr>
 							<td><%= dish.getId() %></td>
 							<td><%= dish.getName() %></td>

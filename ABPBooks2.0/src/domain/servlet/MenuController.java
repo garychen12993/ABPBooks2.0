@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import domain.bean.Category;
 import domain.bean.Dish;
 import domain.dao.CategoryDao;
-import domain.dao.DishDao;
+import domain.dao.BookDao;
 
 /**
  * Servlet implementation class AdSelectDishController
@@ -42,7 +42,7 @@ public class MenuController extends HttpServlet {
 		request.setAttribute("categoryList", categories);
 		
 		
-		DishDao dishDao = new DishDao();
+		BookDao dishDao = new BookDao();
 		List<Dish> dishes = dishDao.selectDish(0);
 		//dishes = dishDao.selectDish();
 		request.setAttribute("dishList", dishes);

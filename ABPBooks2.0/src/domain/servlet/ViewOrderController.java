@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 import domain.bean.Customer;
 import domain.bean.Hold;
 import domain.bean.OrderItem;
-import domain.dao.CustomerDao;
-import domain.dao.OrderDao;
+import domain.dao.StudentDao;
+import domain.dao.HoldDao;
 import domain.dao.OrderItemDao;
 
 /**
@@ -44,11 +44,11 @@ public class ViewOrderController extends HttpServlet {
 			 request.getRequestDispatcher("/errormassage.jsp").forward(request, response);
 		 }
 		 else {
-			 CustomerDao customerDao = new CustomerDao();
+			 StudentDao customerDao = new StudentDao();
 			 Customer customer = new Customer(session.getAttribute("email").toString(), session.getAttribute("passwd").toString());
 			 customer = customerDao.validateCustomer(customer); 
 			 if(request.getParameter("orderid")==null) {
-				 OrderDao orderDao = new OrderDao();
+				 HoldDao orderDao = new HoldDao();
 				 ArrayList<Hold> orderList = orderDao.displayOrder(customer.getId());
 				 request.setAttribute("list", orderList);
 				 request.getRequestDispatcher("/vieworder.jsp").forward(request, response);

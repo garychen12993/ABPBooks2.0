@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.bean.Customer;
-import domain.dao.CustomerDao;
+import domain.bean.Student;
+import domain.dao.StudentDao;
 
 /**
  * Servlet implementation class RegisterController
@@ -29,26 +29,28 @@ public class RegisterController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CustomerDao customerDao = new CustomerDao();
+		StudentDao studentDao = new StudentDao();
 
-		String email = request.getParameter("email");
+		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 //		String submitType = request.getParameter("submit");
 		
-		Customer customerToBeInsert = new Customer(email, password);
+		Student studentToBeInsert = new Student(id, password);
 
-		if (customerDao.customerEmailExist(customerToBeInsert)) {
+		if (studentDao.studentIdExist(studentToBeInsert)) {
 			request.setAttribute("message", "Email exist, please choose another email or login directly with that user name!");
 			request.getRequestDispatcher("/register.jsp").forward(request, response);
 		} else {
-			customerToBeInsert.setFirstName(request.getParameter("firstname"));
-			customerToBeInsert.setLastName(request.getParameter("lastname"));
-			customerToBeInsert.setStreet(request.getParameter("street"));
-			customerToBeInsert.setCity(request.getParameter("city"));
-			customerToBeInsert.setState(request.getParameter("state"));
-			customerToBeInsert.setZip(request.getParameter("zip"));
-			customerToBeInsert.setPhone(request.getParameter("phone"));
-			boolean inserted = customerDao.insertCustomer(customerToBeInsert);
+			studentToBeInsert.setStudentId(request.getParameter("id"));
+			studentToBeInsert.setPassword(request.getParameter("password"));
+			studentToBeInsert.setEmail(request.getParameter("email"));
+			studentToBeInsert.setFirstName(request.getParameter("firstname"));
+			studentToBeInsert.setLastName(request.getParameter("lastname"));
+			studentToBeInsert.setMajor(request.getParameter("major"));
+			studentToBeInsert.setAddress(request.getParameter("address"));
+			studentToBeInsert.setPhone(request.getParameter("phone"));
+			studentToBeInsert.setBridgeYear(Integer.parseInt(request.getParameter("bridgeyear")));
+			boolean inserted = studentDao.insertStudent(studentToBeInsert);
 			if(inserted) {
 				request.setAttribute("successMessage", "Registration done, please login!");
 				request.getRequestDispatcher("/login.jsp").forward(request, response);

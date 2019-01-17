@@ -42,8 +42,12 @@
   					<td><h3 id = "<%= category.getName() %>"><%= category.getName() %></h3></td>
   				</tr>
   				
-  				<%List<Dish> dishList = (List<Dish>)request.getAttribute("dishList");%>
-  				<%for(Dish dish : dishList){%>
+  				<%
+  				  					List<Book> dishList = (List<Book>)request.getAttribute("dishList");
+  				  				%>
+  				<%
+  					for(Book dish : dishList){
+  				%>
   					<%if(dish.getDCId() == category.getId()){%>
 						<tr>
 						<style>

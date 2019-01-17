@@ -34,7 +34,7 @@
 	${successMessage}<br>
 	
 	
-	Email: <input type="text" name="email" id="email"><br>
+	Id: <input type="text" name="id" id="id"><br>
 	Password: <input type="password" name="password" id="password"><br>
 	<input type="submit" name="submit" value="login"><br>
 	<a href="<%=request.getContextPath()%>/register.jsp">Registration</a>

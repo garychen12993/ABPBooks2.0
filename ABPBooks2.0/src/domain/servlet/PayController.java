@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import domain.bean.CartItem;
 import domain.bean.Hold;
 import domain.dao.CartItemDao;
-import domain.dao.OrderDao;
+import domain.dao.HoldDao;
 
 /**
  * Servlet implementation class PayController
@@ -38,7 +38,7 @@ public class PayController extends HttpServlet {
 		// insert order
 		String bill = request.getParameter("bill");
 		String cid = request.getParameter("cid");
-		OrderDao orderDao = new OrderDao();
+		HoldDao orderDao = new HoldDao();
 		int oid = orderDao.saveOrder(cid, bill);
 		
 		// insert order details

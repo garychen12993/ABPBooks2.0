@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import domain.bean.Customer;
-import domain.dao.CustomerDao;
+import domain.bean.Student;
+import domain.dao.StudentDao;
 
 
 /**
@@ -31,13 +31,13 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CustomerDao customerDao = new CustomerDao();
+		StudentDao studentDao = new StudentDao();
 
-		String email = request.getParameter("email");
+		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 //		String submitType = request.getParameter("submit");
 		
-		Customer customerToBeValidate = new Customer(email, password);
+		Student studentToBeValidate = new Student(id, password);
 		// future work: (done)
 		// divided into following cases:(or separate login and register controller)
 		// 1) login :
@@ -49,17 +49,18 @@ public class LoginController extends HttpServlet {
 		//     (1)email exists: back to login.jsp and showing please try login or forget password
 		//     (2)email not exists: data not found
 
-		if(customerDao.customerEmailExist(customerToBeValidate)){
-			Customer customer = customerDao.validateCustomer(customerToBeValidate);
-			if (customer != null) {
+		if(studentDao.studentIdExist(studentToBeValidate)){
+			Student student = studentDao.validateStudent(studentToBeValidate);
+			if (student != null) {
 //				Gary
 				HttpSession session = request.getSession();
-				session.setAttribute("cid", customer.getId());
-				session.setAttribute("email", customer.getEmail());
-				session.setAttribute("fName", customer.getFirstName());
-				session.setAttribute("lName", customer.getLastName());
-				session.setAttribute("passwd", customer.getPassword());
-				request.getRequestDispatcher("/MenuController").forward(request, response);
+				session.setAttribute("cid", student.getStudentId());
+				session.setAttribute("email", student.getEmail());
+				session.setAttribute("fName", student.getFirstName());
+				session.setAttribute("lName", student.getLastName());
+				session.setAttribute("passwd", student.getPassword());
+				request.getRequestDispatcher("/welcome.jsp").forward(request, response);
+				//request.getRequestDispatcher("/MenuController").forward(request, response);
 //				hb
 //				HttpSession session=request.getSession();
 //				session.setAttribute("email", customer.getEmail());
