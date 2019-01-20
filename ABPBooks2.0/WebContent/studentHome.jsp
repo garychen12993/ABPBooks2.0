@@ -76,7 +76,59 @@
 </nav>
 
 <div class="container">
-	<p>Page</p>
+	<form class="form-horizontal" action="/action_page.php">
+	<fieldset>
+	<legend>Book information:</legend>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="title">Title:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="title" placeholder="Enter Book Title" name="title">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="edition">Edition:</label>
+			<div class="col-sm-10">          
+				<input type="text" class="form-control" id="edition" placeholder="Enter Book Edition" name="edition">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="author">Author:</label>
+			<div class="col-sm-10">          
+				<input type="text" class="form-control" id="author" placeholder="Enter Author" name="author">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="isbn">ISBN:</label>
+			<div class="col-sm-10">          
+				<input type="number" class="form-control" id="isbn" placeholder="Enter ISBN" name="isbn">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="subject">Subject:</label>
+			<div class="col-sm-10">          
+				<select class="form-control" id="subject" name="subject">
+					<option value="null">Choose a Subject...</option>
+					<option value="art">Art</option>
+					<option value="business">Business</option>
+					<option value="compsci">Computer Science</option>
+					<option value="education">Education</option>
+					<option value="engineering">Engineering</option>
+					<option value="humanities">Humanities</option>
+					<option value="math">Math</option>
+					<option value="natsci">Natural Sciences</option>
+					<option value="socsci">SocialSciences</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group">        
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</div>
+	</fieldset>
+	</form>
+	
 </div><br><br>
 
 <footer class="container-fluid text-center">
