@@ -7,7 +7,7 @@ public class Book {
 	// define private attributes
 	private int count = 0;
 	private String ABPID = null;
-	private String bookname = null;
+	private String title = null;
 	private String edition = null;
 	private String authors = null;
 	private String ISBN = null;
@@ -32,8 +32,8 @@ public class Book {
 	public String getABPID() {
 		return ABPID;
 	}
-	public String getBookname() {
-		return bookname;
+	public String getTitle() {
+		return title;
 	}
 	public String getEdition() {
 		return edition;
@@ -61,8 +61,8 @@ public class Book {
 	public void setABPID(String ABPID) {
 		this.ABPID = ABPID;
 	}
-	public void setBookname(String bookname) {
-		this.bookname = bookname;
+	public void setTitle(String bookname) {
+		this.title = bookname;
 	}
 	public void setEdition(String edition) {
 		this.edition = edition;

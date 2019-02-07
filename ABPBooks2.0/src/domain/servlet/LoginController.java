@@ -59,7 +59,7 @@ public class LoginController extends HttpServlet {
 				session.setAttribute("fName", student.getFirstName());
 				session.setAttribute("lName", student.getLastName());
 				session.setAttribute("passwd", student.getPassword());
-				request.getRequestDispatcher("/welcome.jsp").forward(request, response);
+				request.getRequestDispatcher("/studentHome.jsp").forward(request, response);
 				//request.getRequestDispatcher("/MenuController").forward(request, response);
 //				hb
 //				HttpSession session=request.getSession();
