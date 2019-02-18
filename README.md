@@ -8,7 +8,7 @@ This is an ongoing project to update the University of Texas at Dallas' Academic
 
 ## Screenshots
 
-
+![homepage](https://user-images.githubusercontent.com/43253326/52934089-0d319e80-331b-11e9-93b6-aac731d7f972.png)
 
 ## Authors
 
