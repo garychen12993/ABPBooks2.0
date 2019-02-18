@@ -12,5 +12,5 @@ This is an ongoing project to update the University of Texas at Dallas' Academic
 
 ## Authors
 
-* **Gary Chen**
-* **Nancy Dominguez Bueno**
+* **Gary Chen (garychen12993@gmail.com)**
+* **Nancy Dominguez Bueno (domingueznancy13@gmail.com)**
