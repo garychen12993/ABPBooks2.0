@@ -50,10 +50,10 @@ public class BookDao {
 		}*/
 		
 		if(title == null && edition == null && author == null && isbn == null && subject == null) {
-			mySQLJDBC.setPreparedSql("select * from books order by title;");
+			mySQLJDBC.setPreparedSql("select *, sum(isAvailable) from books group by isbn;");
 		}else{
 			//mySQLJDBC.setPreparedSql("select * from books order by ABPID;");
-			String selectClause = "select * from books where 1=1 ";
+			String selectClause = "select *, sum(isAvailable) from books where 1=1 ";
 			if(title != null){
 				selectClause += "and title like '" + title + "%' ";
 			}
@@ -69,9 +69,38 @@ public class BookDao {
 			if(subject != null){
 				selectClause += "and subject like '" + subject + "%' ";
 			}
+			selectClause += "group by isbn";
 			
 			mySQLJDBC.setPreparedSql(selectClause);
 		}
+		ResultSet rs = mySQLJDBC.excuteQuery();
+		try {
+			while(rs.next()) {
+				Book book = new Book();
+				book.setCount(rs.getInt("count"));
+				book.setABPID(rs.getString("ABPID"));
+				book.setTitle(rs.getString("title"));
+				book.setEdition(rs.getString("edition_or_volume"));
+				book.setAuthors(rs.getString("authors"));
+				book.setISBN(rs.getString("ISBN"));
+				book.setSubject(rs.getString("subject"));
+				book.setAvailability(rs.getInt("sum(isAvailable)"));
+				book.setNumRequests(rs.getInt("numRequests"));
+				list.add(book);
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		mySQLJDBC.close();
+		return list;
+	}
+	
+	public List<Book> selectBookInfo(String title, String edition, String author, String isbn, String subject) {
+		List<Book> list = new ArrayList<Book>();
+		
+		mySQLJDBC.setPreparedSql("select * from books where isbn = ?;",isbn);
+		
 		ResultSet rs = mySQLJDBC.excuteQuery();
 		try {
 			while(rs.next()) {
@@ -92,13 +121,7 @@ public class BookDao {
 			e.printStackTrace();
 		}
 		mySQLJDBC.close();
-//		for(Category cate : list) {
-//			System.out.println(cate.getId());
-//			System.out.println(cate.getName());
-//			System.out.println(cate.getDes());
-//			System.out.println("-------------------------");
-//		}
+		
 		return list;
 	}
-	
 }

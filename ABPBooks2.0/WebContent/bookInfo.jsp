@@ -38,8 +38,8 @@
       padding: 25px;
     }
     .table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
-   background-color: #dff0d8; // Choose your own color here
- }
+   	  background-color: #dff0d8; // Choose your own color here
+ 	}
   </style>
 </head>
 <body>
@@ -79,33 +79,61 @@
     </div>
   </div>
 </nav>
+<% List<Book> bookList = (List<Book>)request.getAttribute("bookList"); %>
+<% out.println(bookList.get(0).getTitle()); %> </br>
+<% out.println(bookList.get(0).getISBN()); %></br>
+<% out.println(bookList.get(0).getAuthors()); %></br>
+<% out.println(bookList.get(0).getEdition()); %></br>
+<% out.println(bookList.get(0).getSubject()); %></br>
 
 <table class="table table-striped">
+
+<thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <thead bgcolor="black">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th class="text-center" scope="col" style ="color:white">Copy/Status information</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
   <thead>
     <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Ed.</th>
-      <th scope="col">Author</th>
-      <th scope="col">Subject</th>
-      <th scope="col">ISBN</th>
-      <th scope="col">Avl.</th>
+      <th scope="col">Location</th>
+      <th scope="col">ABPID</th>
+      <th scope="col">Status</th>
+      <th scope="col">Due Date</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <%
-				List<Book> bookList = (List<Book>)request.getAttribute("bookList");
 					if(bookList != null && bookList.size() > 0){
 						for(Book book : bookList){
 			%>
 						<tr>
-							<td><a href = "<%=request.getContextPath()%>/BookInfoController?title=<%= book.getTitle() %>&edition=<%= book.getEdition() %>&authors=<%= book.getAuthors() %>&subject=<%= book.getSubject() %>&isbn=<%= book.getISBN() %>"><%= book.getTitle() %></a></td>
-							<td><%= book.getEdition() %></td>
-							<td><%= book.getAuthors() %></td>
+							<td>HH 2.702</td>
+							<td><%= book.getABPID() %></td>
 							<%--<td><img src="<%=book.getPic() %>"/></td>--%>
-							<td><%= book.getSubject() %></td>
-							<td><%= book.getISBN() %></td>
-							<td><%= book.getAvailability() %></td>
+							<td>
+							<% if(book.getAvailability() == 1) {out.print("Available");}
+								else if(book.getAvailability() == 0) {out.print("Checked Out");}%>
+							</td>
+							<td></td>
+							<td>
+								<a>Add to cart</a></br>
+								<a>Place hold</a>
+							</td>
 							<%--<td>
 								<a href="<%=request.getContextPath()%>/admin/AdEditDishController?id=<%=book.getId()%>">edit</a>
 							</td>
