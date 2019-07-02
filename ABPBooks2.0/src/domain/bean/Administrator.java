@@ -17,9 +17,9 @@ public class Administrator {
 	 * @param username
 	 * @param password
 	 */
-	public Administrator(String firstname, String lastname, String username, String password) {
-		this.firstName = firstname;
-		this.lastName = lastname;
+	public Administrator(String username, String password) {
+		//this.firstName = firstname;
+		//this.lastName = lastname;
 		this.username = username;
 		this.password = password;
 	}

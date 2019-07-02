@@ -12,22 +12,17 @@ public class CartItemDao {
 	
 	
 	
-	public List<CartItem> getCartDishes(int cid) {
-		mySQLJDBC.setPreparedSql("select * from \r\n" + 
-				"cart join dish on\r\n" + 
-				"cart.did = dish.did\r\n" + 
-				"join category on \r\n" + 
-				"category.catid = dish.categoryid\r\n" + 
-				"where cart.cid = ?;", cid);
+	public List<CartItem> getCartBooks(String student_id) {
+		mySQLJDBC.setPreparedSql("select * from cart join books on cart.ABPID = books.ABPID where student_id = ?;", student_id);
 		ResultSet res = mySQLJDBC.excuteQuery();
 		List<CartItem> items = new LinkedList<>();
 		try {
 			while ((res != null) && (res.next())) {
-				CartItem cur = new CartItem(res.getInt("did"), res.getInt("quantity"));
-				cur.setCategoryId(res.getInt("catid"));
-				cur.setCategoryName(res.getString("category.name"));
-				cur.setName(res.getString("dish.name"));
-				cur.setPrice(res.getInt("price"));
+				CartItem cur = new CartItem(res.getString("student_id"), res.getString("ABPID"), res.getString("title"), res.getString("edition_or_volume"), res.getString("authors"), res.getString("ISBN"), res.getString("subject"));
+				//cur.setCategoryId(res.getInt("catid"));
+				//cur.setCategoryName(res.getString("category.name"));
+				//cur.setName(res.getString("dish.name"));
+				//cur.setPrice(res.getInt("price"));
 				items.add(cur);
 			}
 		} catch (SQLException e) {
@@ -37,9 +32,9 @@ public class CartItemDao {
 		return items;
 	}
 	
-	public boolean insertCart(int cid, String did, int quantity) {
-		mySQLJDBC.setPreparedSql("insert into cart (cid, did, quantity)\r\n" + 
-				"values (?, ?, ?);", cid, did, quantity);
+	public boolean insertCart(String student_id, String ABPID) {
+		mySQLJDBC.setPreparedSql("insert into cart (student_id, ABPID)\r\n" + 
+				"values (?, ?);", student_id, ABPID);
 		int res = mySQLJDBC.executeUpdate();
 		if (res != -1) {
 			return true;
@@ -47,13 +42,12 @@ public class CartItemDao {
 		return false;
 	}
 	
-	public CartItem checkExist(int cid, String did) {
-		mySQLJDBC.setPreparedSql("select * from cart\r\n" + 
-				"where cid = ? and did = ?;", cid, did);
+	public CartItem checkExist(String student_id, String ABPID) {
+		mySQLJDBC.setPreparedSql("select * from cart join books on cart.ABPID = books.ABPID where student_id = ? and cart.ABPID = ?;", student_id, ABPID);
 		ResultSet res = mySQLJDBC.excuteQuery();
 		try {
 			if ((res != null) && (res.next())) {
-				CartItem cur = new CartItem(res.getInt("did"), res.getInt("quantity"));
+				CartItem cur = new CartItem(res.getString("student_id"), res.getString("ABPID"), res.getString("title"), res.getString("edition_or_volume"), res.getString("authors"), res.getString("ISBN"), res.getString("subject"));
 				return cur;
 			}
 		} catch (SQLException e) {
@@ -73,9 +67,8 @@ public class CartItemDao {
 		return false;
 	}
 	
-	public boolean deleteItem(int cid, String did){
-		mySQLJDBC.setPreparedSql("delete from cart\r\n" + 
-				"where cid = ? and did =?;", cid, did);
+	public boolean removeItem(String student_id, String ABPID){
+		mySQLJDBC.setPreparedSql("delete from cart where student_id = ? and ABPID =?;", student_id, ABPID);
 		int res = mySQLJDBC.executeUpdate();
 		if (res != -1) {
 			return true;

@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Calendar;
 
 //import domain.bean.Customer;
-import domain.bean.Hold;
+import domain.bean.HoldItem;
 import util.MySQLJDBC;
 
 public class LoanDao {
@@ -40,14 +40,14 @@ public class LoanDao {
 		return false;
 	}*/
 	
-	public ArrayList<Hold> displayHold(int studentID){
-		ArrayList<Hold> list = new ArrayList<>();
+	public ArrayList<HoldItem> displayHold(int studentID){
+		ArrayList<HoldItem> list = new ArrayList<>();
 		mySQLJDBC.setPreparedSql("select * from hold where student_id=?;", studentID);
 		ResultSet resultSet = mySQLJDBC.excuteQuery();
 //		response.getWriter().println("hello");
 		try {
 			while(resultSet.next()) {
-				Hold hold = new Hold();
+				HoldItem hold = new HoldItem();
 				hold.setStudentID(resultSet.getInt("student_id"));
 				hold.setABPID(resultSet.getString("ABPID"));
 				hold.setEndDate(resultSet.getString("endDate"));

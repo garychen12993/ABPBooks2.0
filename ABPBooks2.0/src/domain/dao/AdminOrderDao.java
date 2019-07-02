@@ -7,19 +7,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import domain.bean.Book;
-import domain.bean.Hold;
+import domain.bean.HoldItem;
 
 public class AdminOrderDao {
 	private MySQLJDBC mySQLJDBC = new MySQLJDBC();
 	
-	public ArrayList<Hold> displayOrder(){
-		ArrayList<Hold> list = new ArrayList<>();
+	public ArrayList<HoldItem> displayOrder(){
+		ArrayList<HoldItem> list = new ArrayList<>();
 		mySQLJDBC.setPreparedSql("select * from customerorder;");
 		ResultSet resultSet = mySQLJDBC.excuteQuery();
 //		response.getWriter().println("hello");
 		try {
 			while(resultSet.next()) {
-				Hold order = new Hold();
+				HoldItem order = new HoldItem();
 				order.setOrderID(resultSet.getString("oid"));
 				order.setCustomerID(resultSet.getString("cid"));
 				order.setBill(resultSet.getDouble("bill"));
@@ -42,8 +42,8 @@ public class AdminOrderDao {
 		return list;
 	}
 	
-	public Hold getOrder(String id) {
-		Hold returnValue = new Hold();
+	public HoldItem getOrder(String id) {
+		HoldItem returnValue = new HoldItem();
 		returnValue.setOrderID(id);
 //		System.out.println("orderId = "+returnValue.getOrderID());
 //		ArrayList<Dish> dishList = new ArrayList<>();

@@ -13,6 +13,7 @@ public class Book {
 	private String ISBN = null;
 	private String subject = null;
 	private int isAvailable = 0;
+	private int status = 0;
 	private int numRequests = 0;
 	
 	/*public int getDish_amount() {
@@ -50,6 +51,9 @@ public class Book {
 	public int getAvailability() {
 		return isAvailable;
 	}
+	public int getStatus() {
+		return status;
+	}
 	public int getNumRequests() {
 		return numRequests;
 	}
@@ -78,6 +82,9 @@ public class Book {
 	}
 	public void setAvailability(int isAvailable) {
 		this.isAvailable = isAvailable;
+	}
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	public void setNumRequests(int numRequests) {
 		this.numRequests = numRequests;

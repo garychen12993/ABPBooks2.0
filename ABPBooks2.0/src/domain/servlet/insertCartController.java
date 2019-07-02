@@ -1,6 +1,8 @@
 package domain.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,22 +34,26 @@ public class insertCartController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);
-		int cid = (int) session.getAttribute("cid");
+		//int id = (int) session.getAttribute("id");
 		CartItemDao cartItemDao = new CartItemDao();
-		String did = request.getParameter("did");
-		String q = request.getParameter("quantity");
-		int quantity = Integer.valueOf(q);
-		CartItem item = cartItemDao.checkExist(cid, did);
-		if (item != null) {
+		//String student_id = request.getParameter("student_id");
+		String student_id = (String) session.getAttribute("id");
+		String ABPID = (String) request.getParameter("ABPID");
+		//int quantity = Integer.valueOf(q);
+		//CartItem item = cartItemDao.checkExist(student_id, ABPID);
+		/*if (item != null) {
 			if (item.getQuantity() + quantity == 0) {
 				cartItemDao.deleteItem(cid, did);
 			} else {
 				cartItemDao.updateItem(cid, did, item.getQuantity() + quantity);
 			}
-		} else {
-			cartItemDao.insertCart(cid, did, quantity);
-		}
-		request.getRequestDispatcher("/CartController").forward(request, response);
+		} else {*/
+			cartItemDao.insertCart(student_id, ABPID);
+		//}
+			//request.setAttribute("results", results);
+			//request.getRequestDispatcher("bookInfo.jsp").forward(request, response);
+		request.setAttribute("message", request.getParameter("ABPID"));
+		request.getRequestDispatcher("/studentHome.jsp").forward(request, response);
 	}
 
 	/**

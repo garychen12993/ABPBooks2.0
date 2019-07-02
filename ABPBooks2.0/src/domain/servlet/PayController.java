@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import domain.bean.CartItem;
-import domain.bean.Hold;
+import domain.bean.HoldItem;
 import domain.dao.CartItemDao;
-import domain.dao.HoldDao;
+import domain.dao.HoldItemDao;
 
 /**
  * Servlet implementation class PayController
@@ -38,7 +38,7 @@ public class PayController extends HttpServlet {
 		// insert order
 		String bill = request.getParameter("bill");
 		String cid = request.getParameter("cid");
-		HoldDao orderDao = new HoldDao();
+		HoldItemDao orderDao = new HoldItemDao();
 		int oid = orderDao.saveOrder(cid, bill);
 		
 		// insert order details

@@ -1,51 +1,44 @@
 package domain.bean;
 
 public class CartItem {
-	private int did = 0;
-	private int quantity = 0;
-	private String name = null;
-	private double price = 0;
-	private int categoryId = 0;
-	private String categoryName = null;
+	private String student_id = null;
+	private String ABPID = null;
+	private String title = null;
+	private String edition = null;
+	private String authors = null;
+	private String ISBN = null;
+	private String subject = null;
 			
-	public CartItem(int did, int quantity) {
-		this.did = did;
-		this.quantity = quantity;
+	public CartItem(String student_id, String ABPID, String title , String edition, String authors, String ISBN, String subject) {
+		this.student_id = student_id;
+		this.ABPID = ABPID;
+		this.title = title;
+		this.edition = edition;
+		this.authors = authors;
+		this.ISBN = ISBN;
+		this.subject = subject;
 	}
 	
-	public int getId() {
-		return did;
+	public String getStudentID() {
+		return student_id;
 	}
-	public int getQuantity() {
-		return quantity;
+	public String getABPID() {
+		return ABPID;
 	}
-	
-	public void setName(String name) {
-		this.name = name;
+	public String getTitle() {
+		return title;
 	}
-	public String getName() {
-		return name;
+	public String getEdition() {
+		return edition;
 	}
-	
-	public void setPrice(double price) {
-		this.price = price;
+	public String getAuthors() {
+		return authors;
 	}
-	public double getPrice() {
-		return price;
+	public String getISBN() {
+		return ISBN;
 	}
-	
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
-	}
-	public int getCategoryId() {
-		return categoryId;
-	}
-	
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
-	}
-	public String getCategoryName() {
-		return categoryName;
+	public String getSubject() {
+		return subject;
 	}
 }
 

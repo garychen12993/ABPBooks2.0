@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.bean.Hold;
+import domain.bean.HoldItem;
 import domain.dao.AdminOrderDao;
 
 /**
@@ -33,7 +33,7 @@ public class showOrder extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AdminOrderDao orderDao = new AdminOrderDao();
-		ArrayList<Hold> list = orderDao.displayOrder();
+		ArrayList<HoldItem> list = orderDao.displayOrder();
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/admin/adminShowOrder.jsp").forward(request, response);
 	}

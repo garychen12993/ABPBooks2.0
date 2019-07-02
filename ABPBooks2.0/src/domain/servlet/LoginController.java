@@ -54,7 +54,7 @@ public class LoginController extends HttpServlet {
 			if (student != null) {
 //				Gary
 				HttpSession session = request.getSession();
-				session.setAttribute("cid", student.getStudentId());
+				session.setAttribute("id", student.getStudentId());
 				session.setAttribute("email", student.getEmail());
 				session.setAttribute("fName", student.getFirstName());
 				session.setAttribute("lName", student.getLastName());

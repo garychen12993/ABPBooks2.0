@@ -1,4 +1,4 @@
-<%@page import="domain.bean.Hold"%>
+<%@page import="domain.bean.HoldItem"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -11,7 +11,7 @@
 <h2>All orders information</h2>
 <body>
 <%
-	ArrayList<Hold> list = (ArrayList)request.getAttribute("list");
+	ArrayList<HoldItem> list = (ArrayList)request.getAttribute("list");
 %>
 	<table border='1' cellspacing='0' width='60%'>
   	<tr>
@@ -22,7 +22,7 @@
   		<th>Time</th>
   	</tr>
   	<%
-  		for(Hold order : list){
+  		for(HoldItem order : list){
   	%>
   			<tr>
   				<td><%= order.getOrderID() %></td>

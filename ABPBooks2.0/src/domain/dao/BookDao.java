@@ -85,9 +85,9 @@ public class BookDao {
 				book.setISBN(rs.getString("ISBN"));
 				book.setSubject(rs.getString("subject"));
 				book.setAvailability(rs.getInt("sum(isAvailable)"));
+				book.setStatus(rs.getInt("status"));
 				book.setNumRequests(rs.getInt("numRequests"));
 				list.add(book);
-				
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -113,6 +113,7 @@ public class BookDao {
 				book.setISBN(rs.getString("ISBN"));
 				book.setSubject(rs.getString("subject"));
 				book.setAvailability(rs.getInt("isAvailable"));
+				book.setStatus(rs.getInt("status"));
 				book.setNumRequests(rs.getInt("numRequests"));
 				list.add(book);
 				

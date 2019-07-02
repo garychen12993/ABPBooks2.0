@@ -43,10 +43,10 @@ public class RegisterController extends HttpServlet {
 		} else {
 			studentToBeInsert.setStudentId(request.getParameter("id"));
 			studentToBeInsert.setPassword(request.getParameter("password"));
-			studentToBeInsert.setEmail(request.getParameter("email"));
 			studentToBeInsert.setFirstName(request.getParameter("firstname"));
 			studentToBeInsert.setLastName(request.getParameter("lastname"));
 			studentToBeInsert.setMajor(request.getParameter("major"));
+			studentToBeInsert.setEmail(request.getParameter("email"));
 			studentToBeInsert.setAddress(request.getParameter("address"));
 			studentToBeInsert.setPhone(request.getParameter("phone"));
 			studentToBeInsert.setBridgeYear(Integer.parseInt(request.getParameter("bridgeyear")));

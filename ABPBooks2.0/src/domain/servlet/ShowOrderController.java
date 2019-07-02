@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.bean.Hold;
+import domain.bean.HoldItem;
 import domain.dao.AdminOrderDao;
 
 /**
@@ -37,12 +37,12 @@ public class ShowOrderController extends HttpServlet {
 		System.out.println("id="+id);
 		AdminOrderDao orderDao = new AdminOrderDao();
 		if(id.equals("all")){
-			ArrayList<Hold> list = orderDao.displayOrder();
+			ArrayList<HoldItem> list = orderDao.displayOrder();
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("/admin/adminShowOrder.jsp").forward(request, response);
 		}
 		else {
-			Hold order = orderDao.getOrder(id);
+			HoldItem order = orderDao.getOrder(id);
 			request.setAttribute("id", id);
 			request.setAttribute("order", order);
 			request.getRequestDispatcher("/admin/getOrderDetail.jsp").forward(request, response);
