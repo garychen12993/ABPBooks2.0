@@ -27,5 +27,5 @@ Hold Page
 
 ## Authors
 
-* **Gary Chen (garychen12993@gmail.com)**
-* **Nancy Dominguez Bueno (domingueznancy13@gmail.com)**
+* **Gary Chen (garychen12993@gmail.com)** [LinkedIn](https://www.linkedin.com/in/gary-chen-29382492/)
+* **Nancy Dominguez Bueno (domingueznancy13@gmail.com)** [LinkedIn](https://www.linkedin.com/in/domingueznancy?trk=people-guest_profile-result-card_result-card_full-click)
