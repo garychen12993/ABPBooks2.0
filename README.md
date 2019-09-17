@@ -5,6 +5,8 @@ This is an ongoing project to update the University of Texas at Dallas' Academic
 ## Built With
 
 * [Bootstrap](https://getbootstrap.com/) - The web framework used
+* Javascript
+* Java
 
 ## Screenshots
 
