@@ -12,10 +12,16 @@ Search Page
 ![homePage](https://user-images.githubusercontent.com/43253326/65056380-5fc94c80-d936-11e9-9dc8-fe370db13b1b.png)
 
 Search Result Page
-![searchpage](https://user-images.githubusercontent.com/43253326/53305826-b9a7df00-384b-11e9-82e3-b3a1c2896a22.png)
+![searchResultPage](https://user-images.githubusercontent.com/43253326/65056520-9737f900-d936-11e9-8695-48bec0de2ce3.png)
 
 Book Information Page
-![bookinfopage](https://user-images.githubusercontent.com/43253326/53307606-c2a2ab80-385f-11e9-93bc-9170e40ed86d.png)
+![bookInfoPage](https://user-images.githubusercontent.com/43253326/65056532-a323bb00-d936-11e9-913c-3a3220562d9f.png)
+
+Cart Page
+![cartPage](https://user-images.githubusercontent.com/43253326/65056554-b040aa00-d936-11e9-9441-5d8a06f00339.png)
+
+Hold Page
+![holdPage](https://user-images.githubusercontent.com/43253326/65056574-bafb3f00-d936-11e9-9737-e09f2bbfbc25.png)
 
 ## Authors
 
