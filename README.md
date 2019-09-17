@@ -9,8 +9,7 @@ This is an ongoing project to update the University of Texas at Dallas' Academic
 ## Screenshots
 
 Search Page
-![](ABPBooks2.0/Screenshots/Sept 2019/homePage.png)
-![homepage](https://user-images.githubusercontent.com/43253326/52934089-0d319e80-331b-11e9-93b6-aac731d7f972.png)
+![homePage](https://user-images.githubusercontent.com/43253326/65056380-5fc94c80-d936-11e9-9dc8-fe370db13b1b.png)
 
 Search Result Page
 ![searchpage](https://user-images.githubusercontent.com/43253326/53305826-b9a7df00-384b-11e9-82e3-b3a1c2896a22.png)
